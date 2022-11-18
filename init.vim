@@ -1,12 +1,14 @@
 :set number
+:set relativenumber
 :set autoindent
 :set tabstop=4
 :set shiftwidth=4
 :set smarttab
 :set softtabstop=4
 :set mouse=a
+:set clipboard=unnamedplus
+:set clipboard+=unnamedplus
 
-syntax enable
 
 call plug#begin()
 
@@ -14,6 +16,7 @@ Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw)
 Plug 'https://github.com/preservim/nerdtree' " NerdTree
 Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
 Plug 'https://github.com/vim-airline/vim-airline' " Status bar
+Plug 'https://github.com/lifepillar/pgsql.vim' " PSQL Pluging needs :SQLSetType pgsql.vim
 Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
 Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
 Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
@@ -21,9 +24,10 @@ Plug 'https://github.com/tc50cal/vim-terminal' " Vim Terminal
 Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
 Plug 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
 Plug 'https://github.com/jiangmiao/auto-pairs'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf', {'do':{ -> fzf#install()}}
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+
 
 set encoding=UTF-8
 
@@ -50,6 +54,7 @@ let g:NERDTreeDirArrowCollapsible="~"
 " :CocInstall coc-clangd
 " :CocInstall coc-snippets
 " :CocCommand snippets.edit... FOR EACH FILE TYPE
+inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
 
 " air-line
 let g:airline_powerline_fonts = 1
@@ -66,5 +71,4 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
-
-inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
+let g:coc_disable_startup_warning = 1
