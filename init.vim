@@ -11,6 +11,9 @@
 :set backupdir=~/.cache/vim "Directory to store backup files
 :set cursorline
 
+let mapleader = " "
+
+
 syntax enable
 
 call plug#begin()
@@ -25,18 +28,24 @@ Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
 Plug 'https://github.com/tc50cal/vim-terminal' " Vim Terminal
 Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
 Plug 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
+Plug 'https://github.com/tpope/vim-fugitive' " Fugitive is the premier Vim plugin for Git
+Plug 'Civitasv/cmake-tools.nvim' " workflow for CMake-based projects in Neovim
+Plug 'https://github.com/nvim-lua/plenary.nvim' " Plenary Library
 Plug 'https://github.com/jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install --frozen-lockfile'}
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'ThePrimeagen/harpoon'
+Plug 'kevinhwang91/promise-async'
+Plug 'kevinhwang91/nvim-ufo', 
 
 set encoding=UTF-8
 
 call plug#end()
 
-nnoremap <C-f> :NERDTreeFocus<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-l> :call CocActionAsync('jumpDefinition')<CR>
@@ -59,6 +68,7 @@ let g:NERDTreeDirArrowCollapsible="~"
 " :CocInstall coc-snippets
 " :CocCommand snippets.edit... FOR EACH FILE TYPE
 " :CocInstall coc-rust-analyzer
+
 inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
 
 " air-line
