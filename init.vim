@@ -88,3 +88,12 @@ let g:airline_symbols.readonly = '🔒'
 let g:airline_symbols.linenr = '#'
 
 inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
+" Harpoon Konfiguration
+
+lua vim.api.nvim_set_keymap('n', '<leader>a', ':lua require("harpoon.mark").add_file()<CR>', { noremap = true, silent = true })
+lua vim.api.nvim_set_keymap('n', '<leader>r', ':lua require("harpoon.mark").rm_file()<CR>', { noremap = true, silent = true })
+lua vim.api.nvim_set_keymap('n', '<leader>m', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', { noremap = true, silent = true })
+" navigates to next mark
+lua vim.api.nvim_set_keymap('n', '<leader>n', ':lua require("harpoon.ui").nav_next()<CR>', { noremap = true, silent = true })     
+" navigates to previous mark
+lua vim.api.nvim_set_keymap('n', '<leader>b', ':lua require("harpoon.ui").nav_prev()<CR>', { noremap = true, silent = true })     
